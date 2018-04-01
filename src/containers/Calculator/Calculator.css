@@ -1,0 +1,82 @@
+.calculator {
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
+  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #eee;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #cfd8dc;
+}
+
+h1 {
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 2px #CCCCCC;
+    margin-left: 15px;
+}
+
+.button-container {
+  display: inline-box;
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.success {
+  background: #00c853;
+  margin: 10px;
+  width: 110px;
+  font-weight: bold;
+  font-family: Arial;
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.success:hover {
+  background: #2e7d32;
+  text-decoration: none;
+}
+
+.danger {
+  background: #f44336;
+  margin: 10px;
+  width: 110px;
+  font-family: Arial;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.danger:hover {
+  background: #b71c1c;
+  text-decoration: none;
+}
+
+.disabled {
+  background: #757575;
+  margin: 10px;
+  width: 110px;
+  font-family: Arial;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+
+label, input {
+    display: inline-flex;
+    float: inherit;
+}
+
+label {
+    margin-bottom: 10px;
+    padding: 10px;
+    width:50px;
+    clear:left;
+}
