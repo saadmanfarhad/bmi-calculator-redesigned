@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Calculator.css';
-import Aux from '../../hoc/Aux';
 
 class Calculator extends Component {
   constructor(props){
@@ -33,6 +32,7 @@ class Calculator extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     // alert('Submitted: ' + this.state.height + ' ' + this.state.weight);
     if(this.state.height === null || this.state.height <= 0 || this.state.weight === null || this.state.weight <= 0){
       alert('Enter Valid Input');
@@ -61,33 +61,12 @@ class Calculator extends Component {
     }
 
     this.setState({resultString: updatedResultString});
-    event.preventDefault();
   }
 
   render(){
     let outputString = (
       <h3>{this.state.resultString}</h3>
     );
-
-    let btnClassSubmit = 'success';
-    let btnClassReset = 'danger';
-    let btnSubmit = (
-      <button className={btnClassSubmit} onClick={this.handleSubmit}>Calculate</button>
-    );
-    let btnReset = (
-      <button className={btnClassReset} onClick={this.resetInput}>Reset</button>
-    );
-
-    if(this.state.height === '' || this.state.weight === ''){
-      btnClassReset= 'disabled';
-      btnClassSubmit = 'disabled';
-      btnReset = (
-        <button className={btnClassReset} disabled>Reset</button>
-      );
-      btnSubmit = (
-        <button className={btnClassSubmit} disabled>Calculate</button>
-      );
-    }
 
     const style = {
       color: '#FF0000'
@@ -100,36 +79,34 @@ class Calculator extends Component {
     }
 
     return(
-      <Aux>
-        <div className='calculator'>
-          <h1>BMI Calculator</h1>
-          <form>
-            <label>Height:</label>
-            <input
-              name='height'
-              placeholder='Height in cm'
-              type='number'
-              step='.01'
-              value={this.state.height}
-              onChange={this.handleInputChange} />
-            <br/>
-            <label>Weight:</label>
-            <input
-              name='weight'
-              placeholder='Weight in kg'
-              type='number'
-              step='.01'
-              value= {this.state.weight}
-              onChange={this.handleInputChange} />
-            <br/>
-            <div className='button-container'>
-              {btnSubmit}
-              {btnReset}
-            </div>
-          </form>
-          {outputString}
-        </div>
-      </Aux>
+      <div className='calculator'>
+        <h1>BMI Calculator</h1>
+        <form>
+          <label>Height:</label>
+          <input
+            name='height'
+            placeholder='Height in cm'
+            type='number'
+            step='.01'
+            value={this.state.height}
+            onChange={this.handleInputChange} />
+          <br/>
+          <label>Weight:</label>
+          <input
+            name='weight'
+            placeholder='Weight in kg'
+            type='number'
+            step='.01'
+            value= {this.state.weight}
+            onChange={this.handleInputChange} />
+          <br/>
+          <div className='button-container'>
+            <button className="success" onClick={this.handleSubmit}  disabled={this.state.height===''}>Calculate</button>
+            <button className="danger" onClick={this.resetInput} disabled={this.state.weight===''}>Reset</button>
+          </div>
+        </form>
+        {outputString}
+      </div>
     );
   }
 }

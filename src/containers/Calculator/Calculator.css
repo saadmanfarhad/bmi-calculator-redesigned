@@ -56,7 +56,7 @@ h1 {
   text-decoration: none;
 }
 
-.disabled {
+.button-container button:disabled {
   background: #757575;
   margin: 10px;
   width: 110px;
