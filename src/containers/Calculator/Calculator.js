@@ -20,8 +20,6 @@ class Calculator extends Component {
     const value = target.value;
     const name = target.name;
 
-    console.log(value);
-
     this.setState({
       [name]: value
     });
@@ -101,8 +99,8 @@ class Calculator extends Component {
             onChange={this.handleInputChange} />
           <br/>
           <div className='button-container'>
-            <button className="success" onClick={this.handleSubmit}  disabled={this.state.height===''}>Calculate</button>
-            <button className="danger" onClick={this.resetInput} disabled={this.state.weight===''}>Reset</button>
+            <button className="success" onClick={this.handleSubmit}  disabled={this.state.height==='' || this.state.weight===''}>Calculate</button>
+            <button className="danger" onClick={this.resetInput} disabled={this.state.weight==='' || this.state.height===''}>Reset</button>
           </div>
         </form>
         {outputString}
